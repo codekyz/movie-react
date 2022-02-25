@@ -1,5 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import Movie from "../components/Movie";
+import style from "./Home.module.css";
 
 const Home = memo(() => {
   const [loading, setLoading] = useState(true);
@@ -19,11 +20,11 @@ const Home = memo(() => {
   }, []);
 
   return (
-    <div>
+    <div className={style.container}>
       {loading ? (
-        <h1>Loading...</h1>
+        <h1 className={style.loader}>Loading...</h1>
       ) : (
-        <div>
+        <div className={style.movies}>
           {movies.map((movie) => {
             return (
               <Movie

@@ -1,0 +1,47 @@
+.movie {
+  grid-template-columns: minmax(150px, 1fr) 2fr;
+  padding: 16px;
+}
+
+.movie_img {
+  margin-right: 16px;
+  box-shadow: 3px 3px 10px rgba(00, 00, 00, 0.6);
+}
+
+.movie_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie_info h2 {
+  padding: 0;
+  font-size: 36px;
+  color: #766161;
+}
+
+.movie_info h2 > a {
+  text-decoration: none;
+  color: #766161;
+}
+
+.movie_info h2 > a:hover {
+  text-decoration: none;
+  color: #87a7b3;
+}
+
+.movie_genres {
+  margin-top: auto;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.movie_genres li {
+  font-size: small;
+  font-weight: 800;
+  background-color: #87a7b3;
+  padding: 5px;
+  margin-right: 8px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(00, 00, 00, 0.6);
+}

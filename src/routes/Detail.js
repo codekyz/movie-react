@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, memo } from "react";
 import { useParams } from "react-router-dom";
+import style from "./Detail.module.css";
 
 const Detail = memo(() => {
   const { id } = useParams();
@@ -20,21 +21,28 @@ const Detail = memo(() => {
   }, [getMovie]);
 
   return (
-    <div>
+    <div className={style.container}>
       {loading ? (
-        <h1>Loading...</h1>
+        <h1 className={style.loader}>Loading...</h1>
       ) : (
-        <div>
-          <h1>{movie.title_long}</h1>
-          <h3>runtime:{movie.runtime}min</h3>
-          <h3>{movie.rating}</h3>
-          <ul>
-            {movie.genres.map((g) => {
-              return <li key={g}>{g}</li>;
-            })}
-          </ul>
-          <img src={movie.large_cover_image} alt={movie.title} />
-          <p>{movie.description_intro}</p>
+        <div className={style.movie}>
+          <div className={style.movie_title}>
+            <img src={movie.medium_cover_image} alt={movie.title} />
+            <div className={style.movie_info}>
+              <h1>{movie.title_long}</h1>
+              <h3>runtime: {movie.runtime}min</h3>
+              <h3>rating: {movie.rating}</h3>
+            </div>
+          </div>
+
+          <div className={style.movie_discription}>
+            <ul className={style.movie_genres}>
+              {movie.genres.map((g) => {
+                return <li key={g}>{g}</li>;
+              })}
+            </ul>
+            <p>{movie.description_intro}</p>
+          </div>
         </div>
       )}
     </div>
